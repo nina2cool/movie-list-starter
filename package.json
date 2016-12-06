@@ -7,9 +7,12 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "bootstrap": "^3.3.7",
     "react": "^15.4.0",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.0",
-    "react-router": "^4.0.0-alpha.5"
+    "react-router": "^4.0.0-alpha.5",
+    "render-if": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
