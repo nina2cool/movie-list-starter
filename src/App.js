@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import axios from 'axios';
-// import renderIf from 'render-if';
 import MovieList from './MovieList';
-import { Grid } from 'react-bootstrap';
-
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -98,30 +96,24 @@ class App extends Component {
   }
 
 
-  handleDelete(id) {
+  handleDelete(event, id) {
     event.preventDefault();
     console.log('delete', id);
 
-    var savedMovieList = JSON.parse(localStorage.SavedMovieList);
+    var savedMovieList = this.state.movieList;
 
     var newSavedMovieList = savedMovieList.filter(movie => {
-      console.log(movie.imdbID);
       return movie.imdbID !== id;
     });
-
-    console.log(newSavedMovieList);
 
       this.setState({
         ...this.state,
         movieList: newSavedMovieList
       });
 
-      console.log(this.state.movieList);
-      localStorage.setItem('SavedMovieList', JSON.stringify(this.state.movieList));
+      localStorage.setItem('SavedMovieList', JSON.stringify(newSavedMovieList));
 
   }
-
-
 
   render() {
     // console.log('render');
@@ -152,7 +144,6 @@ class App extends Component {
       </div>
     );
   }
-
 
 }
 
