@@ -3,7 +3,8 @@ import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import axios from 'axios';
 import MovieList from './MovieList';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
+
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
 
 
     componentDidMount() {
-      console.log('did mount');
+      //console.log('did mount');
 
       const savedMovieList = JSON.parse(localStorage.getItem('SavedMovieList'));
 
@@ -34,7 +35,7 @@ class App extends Component {
     }
 
   handleChange(event) {
-    console.log('handle change');
+    //console.log('handle change');
     const searchText = event.target.value;
     this.setState({
       searchText: searchText
@@ -42,13 +43,13 @@ class App extends Component {
   }
 
   handleSearch(event) {
-    console.log('handle search');
+    //console.log('handle search');
     event.preventDefault();
 
     axios.get(`http://www.omdbapi.com/?t=${this.state.searchText}&plot=short&r=json`)
 
     .then(resp => {
-      console.log(resp.data);
+      //console.log(resp.data);
 
       this.setState({
         resultOfSearch: resp.data
@@ -61,7 +62,7 @@ class App extends Component {
 
   handleDismiss(event) {
 
-    console.log("Dismiss this movie");
+    //console.log("Dismiss this movie");
     event.preventDefault();
 
     this.setState({
@@ -73,17 +74,19 @@ class App extends Component {
 
   handleAddMovie(id) {
     event.preventDefault();
-    console.log('add', id);
+    //console.log('add', id);
 
     axios.get(`http://www.omdbapi.com/?t=${this.state.searchText}&plot=short&r=json`)
 
     .then(resp => {
-      console.log(resp.data);
+      //console.log(resp.data);
 
         this.setState(prev => {
                 return {
                   ...prev,
-                  movieList: [...prev.movieList, resp.data]
+                  movieList: [...prev.movieList, resp.data],
+                  searchText: '',
+                  resultOfSearch: ''
                 };
               });
               localStorage.setItem('SavedMovieList', JSON.stringify(this.state.movieList));
@@ -93,12 +96,14 @@ class App extends Component {
 
             .catch(err => console.log(`Error! ${err}`));
 
+
+
   }
 
 
   handleDelete(event, id) {
     event.preventDefault();
-    console.log('delete', id);
+    //console.log('delete', id);
 
     var savedMovieList = this.state.movieList;
 
@@ -118,16 +123,21 @@ class App extends Component {
   render() {
     // console.log('render');
     return (
-      <div>
+      <div className="container-fluid">
+
         <Grid>
-            <h1>My Own Personal Movie List</h1>
-              <h2>Search for a movie by Title:</h2>
-              <div>
-                  <SearchBar
-                  value={this.state.searchText}
-                  onChange={this.handleChange.bind(this)}
-                  onSearch={this.handleSearch.bind(this)}
-                  />
+            <div className="header">
+              <h1 className="header_text">Movie List</h1>
+            </div>
+              <div className="search_box">
+                  <h2>Search for a movie by exact title</h2>
+                  <div>
+                      <SearchBar
+                      value={this.state.searchText}
+                      onChange={this.handleChange.bind(this)}
+                      onSearch={this.handleSearch.bind(this)}
+                      />
+                  </div>
               </div>
 
               {this.state.resultOfSearch && <SearchResult resultOfSearch={this.state.resultOfSearch} onAddMovie={this.handleAddMovie.bind(this)}
@@ -135,12 +145,18 @@ class App extends Component {
               />}
 
               <hr></hr>
-                <h2>My Movie List</h2>
+                <div className="movie_section">
+                  <h2 className="movie_section_text">My Movies</h2>
+                </div>
+                <div className="movie_list">
+
                 <MovieList
                   listOfMovies={this.state.movieList}
                   onDelete={this.handleDelete.bind(this)}
                 />
+              </div>
         </Grid>
+
       </div>
     );
   }

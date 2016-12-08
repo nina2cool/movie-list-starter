@@ -12,11 +12,12 @@ const SearchResult = (props) => {
           <hr></hr>
             <h2>Search Results</h2>
             <Movie movie={props.resultOfSearch} />
-              <button onClick={() => props.onAddMovie(props.resultOfSearch.imdbID)}>Add to My List</button>
+              <button className="btn btn-primary" onClick={() => props.onAddMovie(props.resultOfSearch.imdbID)}>+ Add to My List</button>
               <form onSubmit={ event => props.onDismiss(event)}>
               <input
+                className="btn btn-primary"
                 type="submit"
-                value="Dismiss"
+                value="x Dismiss"
               />
               </form>
         </Row>

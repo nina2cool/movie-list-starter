@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row } from 'react-bootstrap';
 
 const MovieList = (props) => {
   return (
@@ -9,13 +9,16 @@ const MovieList = (props) => {
           <Row>
               {props.listOfMovies.map(movie => {
                   return (
-                    <Movie
-                      key={movie.imdbID}
-                      movie={movie}
-                      onDelete={props.onDelete}
-                    />
+
+                        <Movie
+                          key={movie.imdbID}
+                          movie={movie}
+                          RemoveMovieTrue={true}
+                          onDelete={props.onDelete}
+                        />
                   )
                 })}
+
             </Row>
         </Grid>
     </div>

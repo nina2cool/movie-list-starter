@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 class MovieProfile extends Component {
@@ -19,26 +20,33 @@ class MovieProfile extends Component {
         this.setState({
           movie: resp.data
         })
-        console.log(resp.data);
+        //console.log(resp.data);
       })
       .catch(err => console.log(`Error! ${err}`));
   }
 
   renderMovieProfile() {
     return (
-      <div>
+      <div className="movie_profile">
           <Grid>
-              <Row>
-                  <Col md={12}>
-                      <div className="profile">
+                <div>
+                  <h2 className="movie_profile_header">{this.state.movie.Title} ({this.state.movie.Year})</h2>
+                </div>
+                <Row>
+                  <Col md={4}>
                         <div className="image-cropper">
-                          <img src={this.state.movie.Poster} alt="avatar"/>
+                          <img src={this.state.movie.Poster} alt="Movie Poster"/>
                         </div>
+                        <h3>Released: {this.state.movie.Released}</h3>
+                        <h3>Genre: {this.state.movie.Genre}</h3>
+                  </Col>
+                  <Col md={8}>
                         <div className="contact-info">
-                          <h2>Title: {this.state.movie.Year}</h2>
-                          <span>Plot: {this.state.movie.Plot}</span>
+                          <h3>Actors: {this.state.movie.Actors}</h3>
+                          <h3>Plot: {this.state.movie.Plot}</h3>
+                          <h3>Awards: {this.state.movie.Awards}</h3>
                         </div>
-                      </div>
+                        <Link to={`/`}><button className="btn btn-primary"> Back to List</button></Link>
                   </Col>
               </Row>
           </Grid>

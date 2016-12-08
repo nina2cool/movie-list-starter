@@ -1,32 +1,133 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    background: url("../public/background.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header {
+    text-align: center;
+    background: url("../public/marquee.png") no-repeat center center;
+    padding: 60px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.header_text {
+    margin-bottom: 50px;
+    color: white;
+    font-weight: 700;
+    text-shadow: 5px 5px black;
+    font-size: 50px;
+}
+
+.search_box {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .search-bar {
-  height: 35px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 0 10px;
-  box-sizing: border-box;
+    height: 35px;
+    width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: black;
 }
 
-h1, h2 {
-  color: blue;
-}
-
-h1 {
-  text-align: center;
+.search_button {
+    margin-bottom: 20px;
 }
 
 img {
-  height: 50%;
-  width: 50%;
+    height: 265px;
+    width: 177px;
 }
 
-.movie li  {
-  list-style: none;
+input {
+    margin: 10px;
+    padding: 5px;
+}
+
+.movie_section {
+    background: url("../public/film.png") no-repeat center;
+    padding: 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.movie_section_text {
+    margin-bottom: 50px;
+    color: #000;
+    font-weight: 700;
+    font-size: 70px;
+    color: #fff;
+    text-shadow: -3px -3px 0 #cc0000, 3px -3px 0 #cc0000, -3px 3px 0 #cc0000, 3px 3px 0 #cc0000;
+}
+
+.movie li {
+    list-style: none;
+}
+
+.movie_box {
+    max-width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.movie_info {
+    min-height: 430px;
+}
+
+.movie_buttons {}
+
+.movie_list {
+    background: rgba(0, 0, 0, .7);
+    padding: 20px;
+    width: 105%;
+}
+
+.movie_profile {
+    padding-bottom: 35%;
+}
+
+.movie_profile_header {
+    padding: 20px;
+    font-size: 70px;
 }
