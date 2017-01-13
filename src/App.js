@@ -92,11 +92,7 @@ class App extends Component {
               localStorage.setItem('SavedMovieList', JSON.stringify(this.state.movieList));
             })
 
-
-
             .catch(err => console.log(`Error! ${err}`));
-
-
 
   }
 
@@ -154,9 +150,6 @@ class App extends Component {
                   </Col>
                 </Row>
               </Grid>
-
-
-
 
               <hr></hr>
                 <div className="movie_section">

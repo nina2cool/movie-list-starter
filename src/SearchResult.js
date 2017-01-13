@@ -3,7 +3,6 @@ import SearchResultMovie from './SearchResultMovie';
 import { Row, Col } from 'react-bootstrap';
 
 const SearchResult = (props) => {
-    // {JSON.stringify(props.searchResult)
 
     return (
 

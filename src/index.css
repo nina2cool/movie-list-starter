@@ -99,12 +99,11 @@ input {
 }
 
 .search_result_box {
-  background: white;
-  color: black;
-  padding: 20px 40px;
-
-  border-radius: 10px;
-      text-align: center;
+    background: white;
+    color: black;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .search_result_box input {

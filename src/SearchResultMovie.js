@@ -21,29 +21,8 @@ const SearchResultMovie = (props) => {
       </div>
       </Col>
     </Row>
-
-    <Row>
-      <Col sm={12}>
-      </Col>
-    </Row>
-
     </div>
-
-
   );
 }
-
-
-// <Col md={12} className="search_movie_box">
-//   <div className="search_movie_info">
-//
-//
-//   </div>
-//   <div className="movie_buttons">
-//     { props.RemoveMovieTrue && <Link to={`/profile/${props.movie.imdbID}`}><button className="btn btn-primary">> View Movie Details</button></Link>}
-//
-//   </div>
-//   </Col>
-
 
 export default SearchResultMovie;
