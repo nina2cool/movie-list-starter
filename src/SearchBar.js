@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 
 const SearchBar = (props) => {
@@ -7,6 +7,7 @@ const SearchBar = (props) => {
     <div>
       <Grid>
         <Row>
+          <Col md={6}>
             <form onSubmit={ event => props.onSearch(event)}>
               <input
                 className='search-bar'
@@ -22,6 +23,7 @@ const SearchBar = (props) => {
                 disabled={!props.value.trim()}
               />
             </form>
+            </Col>
           </Row>
         </Grid>
     </div>

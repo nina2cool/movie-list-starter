@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import axios from 'axios';
 import MovieList from './MovieList';
-import { Grid } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 
 class App extends Component {
@@ -127,26 +127,40 @@ class App extends Component {
 
         <Grid>
             <div className="header">
-              <h1 className="header_text">Movie List</h1>
+              <h1 className="header_text">Movie List App</h1>
             </div>
-              <div className="search_box">
-                  <h2>Search for a movie by exact title</h2>
-                  <div>
-                      <SearchBar
-                      value={this.state.searchText}
-                      onChange={this.handleChange.bind(this)}
-                      onSearch={this.handleSearch.bind(this)}
-                      />
-                  </div>
-              </div>
 
-              {this.state.resultOfSearch && <SearchResult resultOfSearch={this.state.resultOfSearch} onAddMovie={this.handleAddMovie.bind(this)}
-              onDismiss={this.handleDismiss.bind(this)}
-              />}
+
+              <Grid>
+                <Row>
+                  <Col md={6}>
+                  <div className="search_box">
+                      <h2>Search for a movie by exact title</h2>
+                      <div>
+                          <SearchBar
+                          value={this.state.searchText}
+                          onChange={this.handleChange.bind(this)}
+                          onSearch={this.handleSearch.bind(this)}
+                          />
+                      </div>
+                  </div>
+                  </Col>
+                  <Col md={6}>
+                      <div>
+                      {this.state.resultOfSearch && <SearchResult resultOfSearch={this.state.resultOfSearch} onAddMovie={this.handleAddMovie.bind(this)}
+                      onDismiss={this.handleDismiss.bind(this)}
+                      />}
+                      </div>
+                  </Col>
+                </Row>
+              </Grid>
+
+
+
 
               <hr></hr>
                 <div className="movie_section">
-                  <h2 className="movie_section_text">My Movies</h2>
+                  <h2 className="movie_section_text">My Movie List</h2>
                 </div>
                 <div className="movie_list">
 

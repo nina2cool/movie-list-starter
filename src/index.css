@@ -1,3 +1,5 @@
+/*  GENERAL CSS  */
+
 body {
     color: white;
     font-family: 'Dosis', sans-serif;
@@ -37,10 +39,27 @@ body {
     margin-left: auto;
 }
 
+img {
+    height: 265px;
+    width: 177px;
+}
+
+input {
+    margin: 10px;
+    padding: 5px;
+}
+
+.left_align {
+    text-align: left;
+}
+
+
+/*  Header CSS  */
+
 .header {
     text-align: center;
-    background: url("../public/marquee.png") no-repeat center center;
-    padding: 60px;
+    /*background: url("../public/marquee.png") no-repeat center center;*/
+    /*padding: 60px;*/
     border-radius: 10px;
     margin: 10px;
 }
@@ -49,9 +68,13 @@ body {
     margin-bottom: 50px;
     color: white;
     font-weight: 700;
-    text-shadow: 5px 5px black;
+    /*text-shadow: 5px 5px red;*/
+    text-shadow: -3px -3px 0 #cc0000, 3px -3px 0 #cc0000, -3px 3px 0 #cc0000, 3px 3px 0 #cc0000;
     font-size: 50px;
 }
+
+
+/*  Search CSS  */
 
 .search_box {
     background: white;
@@ -75,15 +98,40 @@ body {
     margin-bottom: 20px;
 }
 
-img {
-    height: 265px;
-    width: 177px;
+.search_result_box {
+  background: white;
+  color: black;
+  padding: 20px 40px;
+
+  border-radius: 10px;
+      text-align: center;
 }
 
-input {
-    margin: 10px;
+.search_result_box input {
+    margin: 0px;
     padding: 5px;
 }
+
+.search_movie_poster_box {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.search_movie_poster_box img {
+    height: 132.5px;
+    width: 88.5px;
+}
+
+.search_movie_info_box {
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: left;
+    padding: 10px;
+    margin-top: -20px;
+}
+
+
+/*  Movie CSS  */
 
 .movie_section {
     background: url("../public/film.png") no-repeat center;
@@ -114,8 +162,6 @@ input {
 .movie_info {
     min-height: 430px;
 }
-
-.movie_buttons {}
 
 .movie_list {
     background: rgba(0, 0, 0, .7);
